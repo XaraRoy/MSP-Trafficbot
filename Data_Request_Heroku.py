@@ -22,10 +22,7 @@ from email.mime.base import MIMEBase
 from email.mime.text import MIMEText
 from email.utils import formatdate
 from email import encoders
-# in the config.py file, we put the senders's gmail accountand&password in the following form:
-#EMAIL_ADDRESS=" " 
-#PASSWORD=" "  
-import config  
+
 
 
 
