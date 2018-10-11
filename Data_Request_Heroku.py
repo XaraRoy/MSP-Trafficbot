@@ -260,7 +260,16 @@ def Route_Summary():
         Summary.to_csv(f,header=True, columns=["Station","Heading", "Time","Order","Speed","Flow","Lat","Lng"])
                        
     print("Summary Saved at data/Route_Summary.csv")
-     
+
+def Data_Request():
+    end_time =  86400
+    while time.time() < end_time:
+        download()
+        data_check()
+        Route_Summary()
+        print("sleeping 30s")
+        time.sleep(30)
+    send_email_from_Heroku()
 
 
 subject = "sending email with attachments"
@@ -312,4 +321,4 @@ def send_email_from_Heroku():
         send_an_email(file_name,subject="sending email with attachments",\
                 body='from Python!')
     return None
-send_email_from_Heroku()
+Data_Request()
