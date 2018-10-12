@@ -20,13 +20,13 @@ def send_an_email(file_name,subject="sending email with attachments", body='from
     ##add xander and jeff's emails here:
 
     #toaddr_s = ['yjjiangphysics@gmail.com','Kreitzer.gr@gmail.com','xanendorf@gmail.com']
-    toaddr_s = ['yjjiangphysics@gmail.com']
+    toaddr_s = ['xanendorf@gmail.com']
     #,'Kreitzer.gr@gmail.com'] 
     me =  EMAIL_ADDRESS
     msg = MIMEMultipart()
     msg['Subject'] = subject
     msg['From'] = me
-    msg['To'] = 'yjjiangphysics@gmail.com'
+    msg['To'] = 'xanendorf@gmail.com'
     msg.preamble = "test " 
     msg.attach(MIMEText(body,'plain'))
 
