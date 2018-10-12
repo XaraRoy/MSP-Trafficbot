@@ -275,7 +275,7 @@ def send_email_from_Heroku():
 
 
 def Data_Request():
-    end_time =  86400
+    end_time =  t_end = time.time() + 1586400
     while time.time() < end_time:
         download()
         data_check()
