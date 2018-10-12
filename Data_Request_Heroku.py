@@ -13,10 +13,10 @@ import xml.etree.ElementTree as ET               ### xml.etree is a flexible con
 import gzip                                      ### compress and decompress gzip files ###
 import time                                      ### import time libraries ###
 import requests                                  ### Libraries to support HTML requests in python ###
+import pandas
 
 
 # In[2]:
-
 
 ####################################################################
 # Defenition to pull Incident Reports and Traffic Detectors from MN DOT
