@@ -14,7 +14,7 @@ import gzip                                      ### compress and decompress gzi
 import time                                      ### import time libraries ###
 import requests                                  ### Libraries to support HTML requests in python ###
 import pandas
-from  send_email_with_attachments import send_an_email
+from  send_email_with_attachments import send_an_email, EMAIL_ADDRESS, PASSWORD
 
 
 # In[2]:
@@ -46,7 +46,6 @@ def download():
 
 
 def data_check():
-
         try:
             with open('data/crash_data.csv', 'r') as CD:
                 incidents()
@@ -262,7 +261,7 @@ def send_email_from_Heroku():
         send_an_email(file_name,subject="Route_Summary.csv", body='from Python!')
         filename="Data/crash_data.csv"
         send_an_email(file_name,subject="sending email with attachments", body='from Python!')
-    except FileNotFoundError:
+   except FileNotFoundError:
         print("File not found, Is this the first time you ran this?")
 
 
