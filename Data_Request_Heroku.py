@@ -284,7 +284,6 @@ def Data_Request():
 
 
 #one time email for restart
-send_an_email("data/station_data.csv")
 send_an_email("data/route_summary.csv")
 
 
