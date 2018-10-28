@@ -257,21 +257,21 @@ def Route_Summary():
 
 
 def send_email_from_Heroku():
-    while True:
-        try:
-            filename="/Data/Route_Summary.csv"
-            send_an_email(file_name,subject="Route_Summary.csv",                body='from Python!')
-            filename="Data/crash_data.csv"
-            send_an_email(file_name,subject="sending email with attachments",                    body='from Python!')
-        except FileNotFoundError:
-            print("File not found, Is this the first time you ran this?")
-    return None
+   try:
+        filename="/Data/Route_Summary.csv"
+        send_an_email(file_name,subject="Route_Summary.csv", body='from Python!')
+        filename="Data/crash_data.csv"
+        send_an_email(file_name,subject="sending email with attachments", body='from Python!')
+    except FileNotFoundError:
+        print("File not found, Is this the first time you ran this?")
+
 
 
 # In[2]:
 
 
 def Data_Request():
+    send_email_from_Heroku()
     end_time =  t_end = time.time() + 1586400
     while time.time() < end_time:
         download()
@@ -284,8 +284,5 @@ def Data_Request():
 
 
 #one time email for restart
-send_an_email("data/route_summary.csv")
-
-
 Data_Request()
 
