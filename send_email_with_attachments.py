@@ -15,18 +15,19 @@ PASSWORD= os.environ.get("PASSWORD")
 # subject = "sending email with attachments"
 # body = 'Hi there, we are sending this email from Python!'
 ### Function to send the email ###
-def send_an_email(file_name,subject="sending email with attachments", body='from Python!'):
-    #global subject,bodybody
+def send_an_email(file_name,subject="sending email with attachments",\
+            body='from Python!'):
+    #global subject,body
     ##add xander and jeff's emails here:
 
     #toaddr_s = ['yjjiangphysics@gmail.com','Kreitzer.gr@gmail.com','xanendorf@gmail.com']
-    toaddr_s = ['xanendorf@gmail.com']
-    #,'Kreitzer.gr@gmail.com'] 
+    #toaddr_s = ['yjjiangphysics@gmail.com']
+    toaddr_s = 'xanendorf@gmail.com'
     me =  EMAIL_ADDRESS
     msg = MIMEMultipart()
     msg['Subject'] = subject
     msg['From'] = me
-    msg['To'] = 'xanendorf@gmail.com'
+    msg['To'] = toaddr_s
     msg.preamble = "test " 
     msg.attach(MIMEText(body,'plain'))
 
@@ -35,9 +36,9 @@ def send_an_email(file_name,subject="sending email with attachments", body='from
     #put the attachments in the following, once in the open(?),
     #once in the filename=?. The second ? is only to ensure the 
     #right file format:
-    part.set_payload(open(file_name, "rb").read())
+    part.set_payload(open("station_data.csv", "rb").read())
     encoders.encode_base64(part)
-    part.add_header(f'Content-Disposition', f'attachment; filename={file_name.split("/")[-1]}')
+    part.add_header(f'Content-Disposition', f'attachment; filename={"station_data.csv".split("/")[-1]}')
     msg.attach(part)
 
 
@@ -61,5 +62,5 @@ def send_an_email(file_name,subject="sending email with attachments", body='from
         pass
           
 
-# file="..//try.html"
-# send_an_email(file)
+file="data/station_data.csv"
+send_an_email(file)
