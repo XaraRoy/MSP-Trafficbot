@@ -14,6 +14,7 @@ import gzip                                      ### compress and decompress gzi
 import time                                      ### import time libraries ###
 import requests                                  ### Libraries to support HTML requests in python ###
 import pandas
+from  send_email_with_attachments import send_an_email
 
 
 # In[2]:
@@ -35,8 +36,6 @@ def download():
     with open('data/XMLs/station_sample.xml', 'w') as handle:
         handle.write(gzip.decompress(s.content).decode('ISO-8859-1'))
 
-#one time email for restart
-send_email_from_Heroku()
 
 ###################################################
 # Defenition to convert information in DataFrames
@@ -258,12 +257,11 @@ def Route_Summary():
 
 
 def send_email_from_Heroku():
-    from  send_email_with_attachments import send_an_email
     while True:
         try:
-            filename="./Data/Route_Summary.csv"
+            filename="/Data/Route_Summary.csv"
             send_an_email(file_name,subject="Route_Summary.csv",                body='from Python!')
-            filename="./Data/crash_data.csv"
+            filename="Data/crash_data.csv"
             send_an_email(file_name,subject="sending email with attachments",                    body='from Python!')
         except FileNotFoundError:
             print("File not found, Is this the first time you ran this?")
@@ -284,7 +282,10 @@ def Data_Request():
     send_email_from_Heroku()
 
 
-# In[ ]:
+
+#one time email for restart
+send_an_email("data/station_data.csv")
+send_an_email("data/route_summary.csv")
 
 
 Data_Request()
