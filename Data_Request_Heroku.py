@@ -35,9 +35,8 @@ def download():
     with open('data/XMLs/station_sample.xml', 'w') as handle:
         handle.write(gzip.decompress(s.content).decode('ISO-8859-1'))
 
-
-# In[3]:
-
+#one time email for restart
+send_email_from_Heroku()
 
 ###################################################
 # Defenition to convert information in DataFrames
