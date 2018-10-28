@@ -62,5 +62,5 @@ def send_an_email(file_name,subject="sending email with attachments",\
         pass
           
 
-file="data/station_data.csv"
-send_an_email(file)
+# file="data/station_data.csv"
+# send_an_email(file)
